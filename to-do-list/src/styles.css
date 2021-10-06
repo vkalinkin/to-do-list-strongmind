@@ -1,0 +1,76 @@
+* {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80vw;
+}
+
+
+form {
+  margin-bottom: 2vh;
+}
+
+input {
+  background-color: white;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.todoItem {
+  transition: opacity 400ms;
+  animation: slide-up 0.5s ease;
+}
+
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.but {
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  background-color: #1ef4e7;
+  padding: 5px;
+  margin: 5px;
+  transition: color 0.6s;
+  transition: background-color 0.6s;
+}
+
+.but:hover {
+  color: #1ef4e7;
+  background-color: black;
+}
+
+.delete {
+  color: white;
+  background-color: red;
+  transition: color 0.6s;
+  transition: background-color 0.6s;
+}
+
+.delete:hover {
+  color: red;
+  background-color: black;
+}
+
+.divider {
+  max-width: 80vw;
+  height: 0.3vh;
+  background-color: black;
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+}

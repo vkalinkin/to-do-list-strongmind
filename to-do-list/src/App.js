@@ -64,25 +64,32 @@ function App() {
   }
 
   return (
-    <div className='App'>
+    <div className="container">
+      <h2 className="header">Todo List App</h2>
+      <h4>Enter in the description of you todo item into the box below and then press the Enter button.</h4>
+      <h4>You can mark todo items as complete and edit or delete them using the associated buttons.</h4>
       <form onSubmit={handleSubmit}>
         <input type = "text" onChange={(event) => setTodo(event.target.value)} value={todo} />
-        <button type = "submit">Add Todo</button>
+        <button type = "submit" className="but enter">Enter</button>
       </form>
-      {todos.map((todo) => <div key = {todo.id}>
+      {todos.map((todo) => <div className= "todoItem" key = {todo.id}>
 
         {todoEditing === todo.id ?
           (<input
+            className ="inp editing"
             type="text"
             onChange={(event) => setEditingText(event.target.value)}
             value={editingText}
           />)
-          : (<div style={{ textDecoration: todo.complete ? "line-through" : "" }}>{todo.text}</div>)}
+          : (<div style={{ textDecoration: todo.complete ? "line-through" : "" }} className="todo-descrip">{todo.text}</div>)}
 
-        <button onClick={() => deleteTodo(todo.id)}>Delete</button>
-        <button onClick={() => toggleComplete(todo.id)}>Complete</button>
-        {todoEditing === todo.id ? (<button onClick={() => editTodo(todo.id)}>Confirm Edit</button>)
-        : (<button onClick={() => setTodoEditing(todo.id)}>Edit</button>)}
+        {todoEditing === todo.id ? (<button className="but confirmEdit" onClick={() => editTodo(todo.id)}>Confirm Edit</button>)
+          : (<button className="but edit" onClick={() => setTodoEditing(todo.id)}>Edit</button>)}
+
+        <button className="but complete" onClick={() => toggleComplete(todo.id)}>Complete</button>
+        <button className = "but delete" onClick={() => deleteTodo(todo.id)}>Delete</button>
+        <div className="divider"></div>
+
       </div>)}
     </div>
   );
